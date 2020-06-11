@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class Player
+    abstract class Player
     {
         public string playerChoice;
         public int numWins;
@@ -14,11 +14,6 @@ namespace RockPaperScissorsLizardSpock
         {
         }
 
-        /*public void PlayerGesture()
-        {
-
-        }*/
-
-        
+        public abstract void PlayerGesture();
     }
 }

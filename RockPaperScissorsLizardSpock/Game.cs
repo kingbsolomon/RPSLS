@@ -43,13 +43,13 @@ namespace RockPaperScissorsLizardSpock
                 switch (userInput)
                 {
                     case "1":
-                        players.Add(playerOne = new Player());
-                        players.Add(playerTwo = new Player());
+                        players.Add(playerOne = new Human());
+                        players.Add(playerTwo = new Human());
                         gameSelected = true;
                         break;
 
                     case "2":
-                        players.Add(playerOne = new Player());
+                        players.Add(playerOne = new Human());
                         players.Add(playerTwo = new AI());
                         gameSelected = true;
                         break;
@@ -58,7 +58,6 @@ namespace RockPaperScissorsLizardSpock
                         Console.WriteLine("Please Enter a valid selection");
                         userInput = Console.ReadLine();
                         break;
-                        
                 }
             }
         }
@@ -67,7 +66,7 @@ namespace RockPaperScissorsLizardSpock
         {
             while (players[0].numWins < 3 && players[1].numWins < 3)
             {
-
+                Battle();
             }
         }
 
@@ -122,7 +121,7 @@ namespace RockPaperScissorsLizardSpock
 
             if(player is AI)
             {
-                player.playerChoice = gestures[random.Next(0, 5)];
+                player.playerChoice = gestures[random.Next(0, gestures.Count)];
             }
 
         }
