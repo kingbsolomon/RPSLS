@@ -4,7 +4,11 @@ using System.Text;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class AI
+    class AI: Player
     {
+        public AI()
+        {
+            
+        }
     }
 }
