@@ -14,12 +14,16 @@ namespace RockPaperScissorsLizardSpock
         public List<string> actions = new List<string>() { "crushes", "cuts", "covers",
         "poisons", "smashes", "decapitates", "eats", "disproves", "vaporizes"};
 
+        public List<Player> players = new List<Player>();
+
         public string gameType = "";
 
         public Player playerOne;
         public Player playerTwo;
         public AI playerTwoAI;
 
+
+        //Methods
         public string GameType()
         {
             Console.WriteLine("Which type of game would you like?");
@@ -39,14 +43,14 @@ namespace RockPaperScissorsLizardSpock
                 switch (userInput)
                 {
                     case "1":
-                        playerOne = new Player();
-                        playerTwo = new Player();
+                        players.Add(playerOne = new Player());
+                        players.Add(playerTwo = new Player());
                         gameSelected = true;
                         break;
 
                     case "2":
-                        playerOne = new Player();
-                        playerTwoAI = new AI();
+                        players.Add(playerOne = new Player());
+                        players.Add(playerTwoAI = new AI());
                         gameSelected = true;
                         break;
 
@@ -59,22 +63,71 @@ namespace RockPaperScissorsLizardSpock
             }
         }
 
-        /*public void PlayerChoice()
+        public void RunGame()
         {
-            Console.WriteLine("Please Select:");
-            Console.WriteLine("1: Rock");
-            Console.WriteLine("2: Paper");
-            Console.WriteLine("3: Scissors");
-            Console.WriteLine("4: Lizard");
-            Console.WriteLine("5: Spock");
-
-            switch (playerChoice)
+            while (players[0].numWins < 3 && players[1].numWins < 3)
             {
-                case "1":
-                    this.playerChoice =
+
+            }
+        }
+
+        public void Battle()
+        {
+            PlayerChoice(players[0]);
+            PlayerChoice(players[1]);
+        }
+
+        public void PlayerChoice(Player player)
+        {
+            Type typeTest = new Type();
+            typeTest = player.GetType();
+
+            if (player.GetType() = Player) 
+            {
+            
+                Console.WriteLine("Please Select:");
+                Console.WriteLine("1: {0}", gestures[0]);
+                Console.WriteLine("2: {0}", gestures[1]);
+                Console.WriteLine("3: {0}", gestures[2]);
+                Console.WriteLine("4: {0}", gestures[3]);
+                Console.WriteLine("5: {0}", gestures[4]);
+
+                string readEntry = Console.ReadLine();
+
+
+
+                switch (readEntry)
+                {
+                    case "1":
+                        player.playerChoice = gestures[0];
+                        break;
+
+                    case "2":
+                        player.playerChoice = gestures[1];
+                        break;
+
+                    case "3":
+                        player.playerChoice = gestures[2];
+                        break;
+
+                    case "4":
+                        player.playerChoice = gestures[3];
+                        break;
+
+                    case "5":
+                        player.playerChoice = gestures[4];
+                        break;
+
+                    default:
+                        Console.WriteLine("Please Enter a Valid Choice");
+                        readEntry = Console.ReadLine();
+                        break;
+                }
+
+
             }
 
-        }*/
+        }
 
     }
 }

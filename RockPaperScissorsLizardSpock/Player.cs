@@ -6,7 +6,8 @@ namespace RockPaperScissorsLizardSpock
 {
     class Player
     {
-        string playerChoice;
+        public string playerChoice;
+        public int numWins;
 
 
         public Player()

@@ -8,7 +8,6 @@ namespace RockPaperScissorsLizardSpock
     {
         public AI()
         {
-            
         }
     }
 }
