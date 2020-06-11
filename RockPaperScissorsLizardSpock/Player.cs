@@ -14,6 +14,11 @@ namespace RockPaperScissorsLizardSpock
         {
         }
 
+        /*public void PlayerGesture()
+        {
+
+        }*/
+
         
     }
 }

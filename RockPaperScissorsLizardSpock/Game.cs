@@ -16,12 +16,12 @@ namespace RockPaperScissorsLizardSpock
 
         public List<Player> players = new List<Player>();
 
-        public string gameType = "";
+        public string gameType;
 
         public Player playerOne;
         public Player playerTwo;
-        public AI playerTwoAI;
 
+        public Random random = new Random();
 
         //Methods
         public string GameType()
@@ -50,7 +50,7 @@ namespace RockPaperScissorsLizardSpock
 
                     case "2":
                         players.Add(playerOne = new Player());
-                        players.Add(playerTwoAI = new AI());
+                        players.Add(playerTwo = new AI());
                         gameSelected = true;
                         break;
 
@@ -79,12 +79,9 @@ namespace RockPaperScissorsLizardSpock
 
         public void PlayerChoice(Player player)
         {
-            Type typeTest = new Type();
-            typeTest = player.GetType();
-
-            if (player.GetType() = Player) 
+           
+            if (player is Player) 
             {
-            
                 Console.WriteLine("Please Select:");
                 Console.WriteLine("1: {0}", gestures[0]);
                 Console.WriteLine("2: {0}", gestures[1]);
@@ -93,8 +90,6 @@ namespace RockPaperScissorsLizardSpock
                 Console.WriteLine("5: {0}", gestures[4]);
 
                 string readEntry = Console.ReadLine();
-
-
 
                 switch (readEntry)
                 {
@@ -123,8 +118,11 @@ namespace RockPaperScissorsLizardSpock
                         readEntry = Console.ReadLine();
                         break;
                 }
+            }
 
-
+            if(player is AI)
+            {
+                player.playerChoice = gestures[random.Next(0, 5)];
             }
 
         }
