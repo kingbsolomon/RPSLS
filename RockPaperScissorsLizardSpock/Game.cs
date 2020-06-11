@@ -21,9 +21,27 @@ namespace RockPaperScissorsLizardSpock
         public Player playerOne;
         public Player playerTwo;
 
-        public Random random = new Random();
-
         //Methods
+
+        public void GameWelcome()
+        {
+            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock");
+            Console.WriteLine("The rules are simple!");
+            Console.WriteLine("{0} {1} {2}", gestures[0], actions[0],gestures[2]); // Rock rushes scissors
+            Console.WriteLine("{0} {1} {2}", gestures[2], actions[1],gestures[1]); //Scissors cuts paper
+            Console.WriteLine("{0} {1} {2}", gestures[1],actions[2],gestures[0]); //Paper covers rock
+            Console.WriteLine("{0} {1} {2}", gestures[0], actions[0],gestures[3]);//Rock crushes Lizard
+            Console.WriteLine("{0} {1} {2}", gestures[3],actions[3],gestures[4]);//Lizard poisons Spock
+            Console.WriteLine("{0} {1} {2}", gestures[4],actions[4],gestures[2]);//Spock smash Scissors
+            Console.WriteLine("{0} {1} {2}", gestures[2],actions[5],gestures[3]);//scissors decapitates lizard
+            Console.WriteLine("{0} {1} {2}", gestures[3],actions[6],gestures[1]);//Lizard eats paper
+            Console.WriteLine("{0} {1} {2}", gestures[1],actions[7],gestures[4]);//Paper disproves Spock
+            Console.WriteLine("{0} {1} {2}", gestures[4], actions[8],gestures[0]);//Spock vaporizes Rock
+            
+            Console.WriteLine("Press Enter to Continue:");
+            Console.ReadLine();
+            Console.Clear();
+        }
         public string GameType()
         {
             Console.WriteLine("Which type of game would you like?");
@@ -64,6 +82,7 @@ namespace RockPaperScissorsLizardSpock
 
         public void RunGame()
         {
+            GameType();
             while (players[0].numWins < 3 && players[1].numWins < 3)
             {
                 Battle();
@@ -72,59 +91,57 @@ namespace RockPaperScissorsLizardSpock
 
         public void Battle()
         {
-            PlayerChoice(players[0]);
-            PlayerChoice(players[1]);
+            playerOne.PlayerGesture(players[0]);
+            playerTwo.PlayerGesture(players[1]);
+
+            if (players[0].playerChoice ==
+                players[1].playerChoice)
+            {
+                Console.WriteLine("There was a tie!");
+                Battle();
+            }
         }
 
-        public void PlayerChoice(Player player)
+        public void CheckWinner()
         {
-           
-            if (player is Player) 
+            switch (playerOne.playerChoice)
             {
-                Console.WriteLine("Please Select:");
-                Console.WriteLine("1: {0}", gestures[0]);
-                Console.WriteLine("2: {0}", gestures[1]);
-                Console.WriteLine("3: {0}", gestures[2]);
-                Console.WriteLine("4: {0}", gestures[3]);
-                Console.WriteLine("5: {0}", gestures[4]);
+                case "Rock":
+                    switch (playerTwo.playerChoice)
+                    {
+                        case "Scissors":
+                            Console.WriteLine("{0} {1} {2}", gestures[0], actions[0], gestures[2]);
+                            playerOne.numWins++;
+                            break;
 
-                string readEntry = Console.ReadLine();
+                        case "Paper":
+                            Console.WriteLine("{0} {1} {2}", gestures[1], actions[2], gestures[0]);
+                            playerTwo.numWins++;
+                            break;
 
-                switch (readEntry)
-                {
-                    case "1":
-                        player.playerChoice = gestures[0];
-                        break;
+                        case "Lizard":
+                            Console.WriteLine("{0} {1} {2}", gestures[0], actions[0], gestures[3]);
+                            playerOne.numWins++;
+                            break;
 
-                    case "2":
-                        player.playerChoice = gestures[1];
-                        break;
+                        case""
+                    }
 
-                    case "3":
-                        player.playerChoice = gestures[2];
-                        break;
 
-                    case "4":
-                        player.playerChoice = gestures[3];
-                        break;
-
-                    case "5":
-                        player.playerChoice = gestures[4];
-                        break;
-
-                    default:
-                        Console.WriteLine("Please Enter a Valid Choice");
-                        readEntry = Console.ReadLine();
-                        break;
-                }
             }
-
-            if(player is AI)
-            {
-                player.playerChoice = gestures[random.Next(0, gestures.Count)];
-            }
-
         }
 
     }
 }
+
+/*
+            Console.WriteLine("{0} {1} {2}", gestures[0], actions[0],gestures[2]); // Rock rushes scissors
+            Console.WriteLine("{0} {1} {2}", gestures[2], actions[1],gestures[1]); //Scissors cuts paper
+            Console.WriteLine("{0} {1} {2}", gestures[1],actions[2],gestures[0]); //Paper covers rock
+            Console.WriteLine("{0} {1} {2}", gestures[0], actions[0],gestures[3]);//Rock crushes Lizard
+            Console.WriteLine("{0} {1} {2}", gestures[3],actions[3],gestures[4]);//Lizard poisons Spock
+            Console.WriteLine("{0} {1} {2}", gestures[4],actions[4],gestures[2]);//Spock smash Scissors
+            Console.WriteLine("{0} {1} {2}", gestures[2],actions[5],gestures[3]);//scissors decapitates lizard
+            Console.WriteLine("{0} {1} {2}", gestures[3],actions[6],gestures[1]);//Lizard eats paper
+            Console.WriteLine("{0} {1} {2}", gestures[1],actions[7],gestures[4]);//Paper disproves Spock
+            Console.WriteLine("{0} {1} {2}", gestures[4], actions[8],gestures[0]);//Spock vaporizes Rock*/

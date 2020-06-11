@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class AI: Player
+    class AI : Player
     {
-        public AI()
+        public Random random = new Random();
+
+        public override void PlayerGesture(Player player)
         {
+            player.playerChoice = gestures[random.Next(0, gestures.Count)];
         }
     }
 }

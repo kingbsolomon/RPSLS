@@ -9,11 +9,12 @@ namespace RockPaperScissorsLizardSpock
         public string playerChoice;
         public int numWins;
 
+        public List<string> gestures = new List<string>() { "Rock", "Paper",
+        "Scissors", "Lizard", "Spock"};
 
-        public Player()
-        {
-        }
 
-        public abstract void PlayerGesture();
+        public Player() { }
+
+        public abstract void PlayerGesture(Player player);
     }
 }
