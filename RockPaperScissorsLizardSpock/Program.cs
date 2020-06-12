@@ -9,7 +9,6 @@ namespace RockPaperScissorsLizardSpock
             Game game = new Game();
             game.GameWelcome();
             game.RunGame();
-            game.PlayAgain();
         }
     }
 }

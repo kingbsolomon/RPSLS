@@ -8,6 +8,7 @@ namespace RockPaperScissorsLizardSpock
     {
         public string playerChoice;
         public int numWins;
+        public string playerName;
 
         public List<string> gestures = new List<string>() { "Rock", "Paper",
         "Scissors", "Lizard", "Spock"};

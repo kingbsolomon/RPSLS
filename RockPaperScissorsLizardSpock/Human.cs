@@ -9,7 +9,7 @@ namespace RockPaperScissorsLizardSpock
 
         public override void PlayerGesture(Player player)
         {
-            Console.WriteLine("Please Select:");
+            Console.WriteLine("{0}, Please Select:", playerName);
             Console.WriteLine("1: {0}", gestures[0]);
             Console.WriteLine("2: {0}", gestures[1]);
             Console.WriteLine("3: {0}", gestures[2]);
