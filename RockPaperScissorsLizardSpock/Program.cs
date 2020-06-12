@@ -8,7 +8,8 @@ namespace RockPaperScissorsLizardSpock
         {
             Game game = new Game();
             game.GameWelcome();
-            game.GameType();
+            game.RunGame();
+            game.PlayAgain();
         }
     }
 }
