@@ -7,11 +7,22 @@ namespace RockPaperScissorsLizardSpock
 {
     class AI : Player
     {
-        public Random random = new Random();
+        public Random random;
 
-        public override void PlayerGesture(Player player)
+        public AI()
         {
-            player.playerChoice = gestures[random.Next(0, gestures.Count)];
+            random = new Random();
+        }
+
+        public override void PlayerName()
+        {
+            playerName = "Android 13";
+        }
+
+        public override void PlayerGesture()
+        {
+            int randomNumber = random.Next(0, gestures.Count);
+            playerChoice = gestures[randomNumber];
         }
     }
 }
